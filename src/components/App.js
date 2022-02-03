@@ -21,15 +21,15 @@ function App() {
 export default App;
 
 
-
 const mapCount = state => ({ count: state.count });
+
 
 
 // connected component
 const Counter = connect(mapCount, { inc, dec })(props => (
-	<div data-testid='counter'>
+	<div >
          <button onClick={props.inc} >+</button> 
-          Count: {props.count}
+         <span data-testid='counter'> Count: {props.count}</span>
         <button onClick={props.dec}>-</button>
         </div>
 ));
