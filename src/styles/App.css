@@ -1,0 +1,13 @@
+button{
+    background-color: rgba(3, 83, 202, 0.781);
+    color: white;
+    font-size: 18px;
+    margin: 30px;
+    padding-inline: 18px;
+    box-shadow: 1px 5px 10px gray;
+    border-radius: 20px;
+}
+
+span{
+    font-weight: 700;
+}
