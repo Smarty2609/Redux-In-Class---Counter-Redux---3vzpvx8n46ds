@@ -1,18 +1,33 @@
 import React from 'react';
 import {increment,decrement} from '../actions/action';
-import {useSelector,useDispatch} from 'react-redux';
-
+import ReactRedux from 'react-redux';
+import {createStore} from 'redux';
+import reducer from '../reducers/index';
+import {Provider,connect} from 'react-redux';
 function App() {
 
- const counter = useSelector(state => state);
- const dispatch = useDispatch();
+  const store = createStore(countReducer);
+  const initialState = {
+    count: 0,
+  };
+
   return (
     <div id='main'>
-      <h2 data-testid='counter'>{counter}</h2>
-      <button onClick={()=> dispatch(increment())}>+</button>
-      <button onClick={() => dispatch(decrement())}>-</button>
+      <Provider store={store}>
+        <Counter/>
+      </Provider>
     </div> 
   );
 }
 
 export default App;
+
+
+
+
+
+// connected component
+const Counter = connect(mapCount, { inc, dec })(props => (
+	<div data-testid='counter'>Count: {props.count} <button onClick={props.inc} >+</button> <button onClick={props.dec}>-</button></div>
+));
+

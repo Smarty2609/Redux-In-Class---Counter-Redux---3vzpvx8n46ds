@@ -1,14 +1,28 @@
 
-const countReducer = (state = 0, action) =>{
-   switch(action.type){ 
-    case 'INCREMENT':
-       return state + 1;
+// const countReducer = (state = 0, action) =>{
+//    switch(action.type){ 
+//     case 'INCREMENT':
+//        return state + 1;
     
-    case 'DECREMENT':
-       return state - 1;
+//     case 'DECREMENT':
+//        return state - 1;
     
-   default:
-      return state;
+//    default:
+//       return state;
+//   }
+// };
+//   export default countReducer;
+
+const reducer = (state = initialState, action) => {
+	switch(action.type) {
+  	case 'INCREMENT':
+    	return Object.assign({}, state, { count: state.count + 1 });
+  	case 'DECREMENT':
+    	return Object.assign({}, state, { count: state.count - 1 });
   }
-};
-  export default countReducer;
+  return state;
+}
+const mapCount = state => ({ count: state.count });
+
+export default reducer;
+export default mapCount;
