@@ -6,7 +6,7 @@ import reducer from '../reducers/index';
 import {Provider,connect} from 'react-redux';
 function App() {
 
-  const store = createStore(countReducer);
+  const store = createStore(reducer);
   const initialState = {
     count: 0,
   };
@@ -25,6 +25,7 @@ export default App;
 
 
 
+const mapCount = state => ({ count: state.count });
 
 // connected component
 const Counter = connect(mapCount, { inc, dec })(props => (
