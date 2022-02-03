@@ -4,12 +4,11 @@ import ReactRedux from 'react-redux';
 import {createStore} from 'redux';
 import reducer from '../reducers/index';
 import {Provider,connect} from 'react-redux';
+import {inc,dec} from '../actions/action';
 function App() {
 
   const store = createStore(reducer);
-  const initialState = {
-    count: 0,
-  };
+  
 
   return (
     <div id='main'>
@@ -24,11 +23,15 @@ export default App;
 
 
 
-
 const mapCount = state => ({ count: state.count });
+
 
 // connected component
 const Counter = connect(mapCount, { inc, dec })(props => (
-	<div data-testid='counter'>Count: {props.count} <button onClick={props.inc} >+</button> <button onClick={props.dec}>-</button></div>
+	<div data-testid='counter'>
+         <button onClick={props.inc} >+</button> 
+          Count: {props.count}
+        <button onClick={props.dec}>-</button>
+        </div>
 ));
 
