@@ -22,7 +22,6 @@ const reducer = (state = initialState, action) => {
   }
   return state;
 }
-const mapCount = state => ({ count: state.count });
 
 export default reducer;
-export mapCount;
+
