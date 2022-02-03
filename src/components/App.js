@@ -1,6 +1,5 @@
 import React from 'react';
-import {increment,decrement} from '../actions/action';
-import ReactRedux from 'react-redux';
+import '../styles/App.css';
 import {createStore} from 'redux';
 import reducer from '../reducers/index';
 import {Provider,connect} from 'react-redux';
